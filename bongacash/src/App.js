@@ -1,26 +1,46 @@
-import React from 'react';
+import React , { Component } from 'react';
+import axios from 'axios';
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class Home extends Component {
+  state = {
+    posts: []
+  }
+  componentDidMount(){
+    axios.get('https://promo-bc.com/promo.php?c=623270&type=api&api_v=1&api_type=json')
+      .then(res => {
+        console.log(res);
+        this.setState({
+          posts: res.data.slice(0,10000)
+        })
+      })
+  }
+  render(){
+    const { posts } = this.state;
+    const postList = posts.length ? (
+      posts.map(post => {
+        return (
+          <div className="post card" key={post.username}>
+            <div className="card-content">
+              <h4>{post.display_name}</h4>
+              <p>{post.chat_url}</p>
+            </div>
+          </div>
+        )
+      })
+    ) : (
+      <h2>No models online :(</h2>
+    )
+    return (
+      <div className="App">
+        <header className="App-headers">
+          <img src={logo} className="App-logo" alt="logo" />
+          {postList}
+        </header>
+      </div>
+    );
+  }
 }
 
-export default App;
+export default Home;
