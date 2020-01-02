@@ -15,7 +15,7 @@ export default class Header extends Component {
       	        <a className="nav-link" href="/">All models</a>
       	      </li>
       	      <li className="nav-item">
-      	        <a className="nav-link" href="/">Pricing</a>
+      	        <a className="nav-link" href="/infinite">Infinite</a>
       	      </li>
       	    </ul>
       	  </div>
