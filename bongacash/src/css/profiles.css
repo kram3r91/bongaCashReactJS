@@ -1,0 +1,47 @@
+/* * Custom CSS for model on query *  */
+.profile-list .col-sm-12.col-md-6.col-lg-3 {
+	padding-bottom: 15px;
+	padding-top: 15px;
+}
+.profile-list .row .singleModel .card {
+	transition: all 0.2s ease-out;
+	width: 100%;
+}
+.profile-list .row .singleModel .card:hover {
+	border: 1px solid rgba(0, 0, 0, 0.325)
+}
+.profile-list .row .singleModel button {
+	float: right;
+	padding: 0.1rem;
+	font-size: 0.65rem;
+	text-transform: uppercase;
+	transform: translateY(2px);
+}
+.singleModel .profileLink {
+	position: relative;
+	color: #fff;
+	font-size: 0.9rem;
+}
+.singleModel .profileLink .info {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.5);
+	width: 100%;
+	padding: 0.2rem 0.4rem;
+}
+.singleModel .hashtags {
+	margin: 0;
+}
+.singleModel .hashtags a {
+	background-color: #f9f9f9;
+	margin: 0 0.4rem 0 0;
+	white-space: nowrap;
+	font-size: 0.8rem;
+	padding: 0.2rem;
+	color: #FF0000;
+}
+.singleModel .hashtags a:hover {
+	background-color: #f0f0f0;
+	text-decoration: none;
+}
