@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import axios from 'axios';
 
+import '../css/general.css';
+import '../css/profiles.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faClock, faUsers } from '@fortawesome/free-solid-svg-icons';
+import { faEye } from '@fortawesome/free-solid-svg-icons';
 
 class Home extends Component {
   state = {
@@ -13,7 +15,7 @@ class Home extends Component {
       .then(res => {
         console.log(res);
         this.setState({
-          posts: res.data.slice(0,1000)
+          posts: res.data.slice(0,99999)
         })
       })
   }
@@ -22,33 +24,40 @@ class Home extends Component {
     const postList = posts.length ? (
       posts.map(post => {
         return (
-          <div className="col-sm-12 col-md-6 col-lg-2" key={post.username}>
+          <div className="singleModel col-sm-12 col-md-6 col-lg-3" key={post.username}>
             <div className="card">
-              <img className="card-img-top" src={ post.profile_images.thumbnail_image_medium_live } alt={ post.username } />
+              <a href="/" className="profileLink">
+                <img className="card-img-top" src={ post.profile_images.thumbnail_image_medium_live } alt={ post.username } />
+                <div className="info">
+                  <span className="float-left">{ post.display_name }</span>
+                  <span className="float-right">{ post.members_count } <FontAwesomeIcon icon={faEye} /></span>
+                </div>
+              </a>
               <div className="card-body">
-                <h5 className="card-title">{ post.username }</h5>
-                <p className="card-text">{ post.display_name + post.display_age }</p>
+                <h5 className="card-title">{ post.display_name }</h5>
+                <p className="card-text hashtags"><a href="/">#{ post.tags[0] }</a><a href="/">#{ post.tags[1] }</a><a href="/">#{ post.tags[2] }</a></p>
                 <p className="card-text">
                   <small className="text-muted">
-                    <span className="float-left"><FontAwesomeIcon icon={faClock} /> { post.online_time }</span>
-                    <span className="float-right"><FontAwesomeIcon icon={faUsers} /> { post.members_count }</span>
+                    <span className="float-left"></span>
+                    <span className="float-right"></span>
                   </small>
                 </p>
-                <button className="btn-goTo" username={ post.username }>click</button>
               </div>
             </div>
           </div>
         )
       })
     ) : (
-      <h2>No models online :(</h2>
+      <h2>Models online is loading ...</h2>
     )
     return (
       <div className="App">
         <header className="App-headers">
         <div className="container">
-          <div className="row">
-            {postList}
+          <div className="profile-list">
+            <div className="row">
+              {postList}
+            </div>
           </div>
         </div>
         </header>
