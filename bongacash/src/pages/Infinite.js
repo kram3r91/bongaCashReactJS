@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from 'axios';
+import $ from 'jquery';
 import '../css/general.css';
 import '../css/profiles.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -12,9 +13,9 @@ class Home extends Component {
   componentDidMount(){
     axios.get('https://promo-bc.com/promo.php?c=623270&type=api&api_v=1&api_type=json')
       .then(res => {
-        console.log(res.data.length);
+        console.log(res);
         this.setState({
-          posts: res.data
+          posts: res.data.slice(0,99999)
         })
       })
   }
@@ -23,7 +24,7 @@ class Home extends Component {
     const postList = posts.length ? (
       posts.map(post => {
         return (
-          <div className="singleModel col-sm-12 col-md-6 col-lg-3" key={post.username}>
+          <div className="singleModel hidden col-sm-12 col-md-6 col-lg-3" key={post.username}>
             <div className="card">
               <a href="/" className="profileLink">
                 <img className="card-img-top" src={ post.profile_images.thumbnail_image_medium_live } alt={ post.username } />
@@ -62,6 +63,23 @@ class Home extends Component {
         </header>
       </div>
     );
+  }
+  componentDidUpdate(){
+    var n = 20;
+
+    window.onscroll = function() {
+        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+          var elements = $('.singleModel.hidden');
+          for (var i = 0; i < n; i++) {
+            if ($('.singleModel.hidden').length > 0){
+              elements[i].classList.remove('hidden');
+              console.log('true');
+            }else{
+              console.log('false');
+            }
+          }
+        }
+    }
   }
 }
 

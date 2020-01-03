@@ -17,6 +17,9 @@
 	text-transform: uppercase;
 	transform: translateY(2px);
 }
+.singleModel {
+	transition: all 0.3s ease-out;
+}
 .singleModel .profileLink {
 	position: relative;
 	color: #fff;
@@ -44,4 +47,12 @@
 .singleModel .hashtags a:hover {
 	background-color: #f0f0f0;
 	text-decoration: none;
+}
+.singleModel.hidden {
+	display: none;
+	opacity: 0;
+}
+.singleModel.hidden:nth-child(-n+20){
+    display: inherit;
+		opacity: 1;
 }
