@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import axios from 'axios';
 import $ from 'jquery';
+
 import '../css/general.css';
 import '../css/profiles.css';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye } from '@fortawesome/free-solid-svg-icons';
 
-class Home extends Component {
+class Model extends Component {
   state = {
     posts: []
   }
@@ -20,42 +19,20 @@ class Home extends Component {
       })
   }
   render(){
-    const { posts } = this.state;
-    const postList = posts.length ? (
-      posts.map(post => {
-        return (
-          <div className="singleModel hidden col-xs-6 col-sm-6 col-md-4 col-lg-3" key={post.username}>
-            <div className="card">
-              <a href={"/model?username=" + post.username + "?gender=" + post.gender} className="profileLink">
-                <img className="card-img-top" src={ post.profile_images.thumbnail_image_medium_live } alt={ post.username } />
-                <div className="info">
-                  <span className="float-left">{ post.display_name }</span>
-                  <span className="float-right">{ post.members_count } <FontAwesomeIcon icon={faEye} /></span>
-                </div>
-              </a>
-              <div className="card-body">
-                <p className="card-text hashtags"><a href={"/tags?tag=" + post.tags[0] }>#{ post.tags[0] }</a><a href={"/tags?tag=" + post.tags[1] }>#{ post.tags[1] }</a><a href={"/tags?tag=" + post.tags[2] }>#{ post.tags[2] }</a></p>
-                <p className="card-text">
-                  <small className="text-muted">
-                    <span className="float-left"></span>
-                    <span className="float-right"></span>
-                  </small>
-                </p>
-              </div>
-            </div>
-          </div>
-        )
-      })
-    ) : (
-      <h2>Models online is loading ...</h2>
-    )
     return (
       <div className="App">
         <header className="App-headers">
         <div className="container">
-          <div className="profile-list">
+          <div className="profile-model hidden">
             <div className="row">
-              {postList}
+              <nav aria-label="breadcrumb">
+                <ol className="breadcrumb">
+                  <li className="breadcrumb-item home"><a href="/">Home</a></li>
+                  <li className="breadcrumb-item gender active" aria-current="page">Gender</li>
+                </ol>
+              </nav>
+            </div>
+            <div className="row" id="show">
             </div>
           </div>
         </div>
@@ -64,6 +41,40 @@ class Home extends Component {
     );
   }
   componentDidUpdate(){
+    var createPost = '';
+    function search(parameter, posts){
+      for ( var i = 0; i < posts.length; i++){
+        if(posts[i].gender === parameter){
+          createPost += '<div class="singleModel hidden col-xs-6 col-sm-6 col-md-4 col-lg-3">' +
+          '<div class="card">' +
+              '<a href="/model?username=' + posts[i].username + '?gender=' + posts[i].gender + '" class="profileLink">' +
+                '<img class="card-img-top" src="'+ posts[i].profile_images.thumbnail_image_medium_live +'" alt={ post.username } />' +
+                '<div class="info">' +
+                  '<span class="float-left">' + posts[i].display_name + ' </span>' +
+                  '<span class="float-right">' + posts[i].members_count + '' +
+                '</div>' +
+              '</a>' +
+              '<div class="card-body">' +
+                '<p class="card-text hashtags"><a href="/tags?tag= '+ posts[i].tags[0] + ' "> #' + posts[i].tags[0] + '</a><a href="/tags?tag= '+ posts[i].tags[1] + ' "> #' + posts[i].tags[1] + '</a><a href="/tags?tag= '+ posts[i].tags[2] + ' "> #' + posts[i].tags[2] + '</a></p>' +
+                '<p class="card-text">' +
+                  '<small class="text-muted">' +
+                    '<span class="float-left"></span>' +
+                    '<span class="float-right"></span>' +
+                  '</small>' +
+                '</p>' +
+              '</div>' +
+            '</div>' +
+          '</div>';
+          console.log(posts.length);
+        }
+      }
+    }
+    const { posts } = this.state;
+    const parameter = window.location.href.split('gender=')[1].replace(/%20/g, ' ');
+    search(parameter, posts);
+    $('#show').html(createPost);
+    $('.breadcrumb-item.active').html(parameter);
+
     var n = 20;
     $('.singleModel.hidden:nth-child(1)').removeClass('hidden');
     $('.singleModel.hidden:nth-child(2)').removeClass('hidden');
@@ -85,7 +96,6 @@ class Home extends Component {
     $('.singleModel.hidden:nth-child(18)').removeClass('hidden');
     $('.singleModel.hidden:nth-child(19)').removeClass('hidden');
     $('.singleModel.hidden:nth-child(20)').removeClass('hidden');
-
     window.onscroll = function() {
       if ((window.innerHeight + window.scrollY + 1) >= document.body.offsetHeight) {
         var elements = $('.singleModel.hidden');
@@ -99,4 +109,4 @@ class Home extends Component {
   }
 }
 
-export default Home;
+export default Model;

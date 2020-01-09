@@ -10,6 +10,9 @@
 .profile-list .row .singleModel .card:hover {
 	border: 1px solid rgba(0, 0, 0, 0.325)
 }
+.profile-list .row .singleModel .card .card-body {
+	padding: 0.5rem;
+}
 .profile-list .row .singleModel button {
 	float: right;
 	padding: 0.1rem;
@@ -18,6 +21,7 @@
 	transform: translateY(2px);
 }
 .singleModel {
+	margin-bottom: 30px;
 	transition: all 0.3s ease-out;
 }
 .singleModel .profileLink {
