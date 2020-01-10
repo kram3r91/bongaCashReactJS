@@ -12,7 +12,6 @@ class Model extends Component {
   componentDidMount(){
     axios.get('https://promo-bc.com/promo.php?c=623270&type=api&api_v=1&api_type=json')
       .then(res => {
-        console.log(res);
         this.setState({
           posts: res.data
         })
@@ -25,12 +24,17 @@ class Model extends Component {
         <div className="container">
           <div className="profile-model hidden">
             <div className="row">
-              <nav aria-label="breadcrumb">
-                <ol className="breadcrumb">
-                  <li className="breadcrumb-item home"><a href="/">Home</a></li>
-                  <li className="breadcrumb-item gender active" aria-current="page">Gender</li>
-                </ol>
-              </nav>
+              <div className="col-sm-6 col-md-6 col-lg6">
+                <nav aria-label="breadcrumb float-left">
+                  <ol className="breadcrumb">
+                    <li className="breadcrumb-item home"><a href="/">Home</a></li>
+                    <li className="breadcrumb-item gender active" aria-current="page">Gender</li>
+                  </ol>
+                </nav>
+              </div>
+              <div className="col-sm-6 col-md-6 col-lg-6">
+                <button type="button" className="btn btn-primary btn-sm float-right">Models online from this category <span className="badge badge-light"></span></button>
+              </div>
             </div>
             <div className="row" id="show">
             </div>
@@ -65,7 +69,6 @@ class Model extends Component {
               '</div>' +
             '</div>' +
           '</div>';
-          console.log(posts.length);
         }
       }
     }
@@ -74,6 +77,8 @@ class Model extends Component {
     search(parameter, posts);
     $('#show').html(createPost);
     $('.breadcrumb-item.active').html(parameter);
+    var modelsFromCategory = $('.singleModel');
+    $('.badge-light').html(modelsFromCategory.length);
 
     var n = 20;
     $('.singleModel.hidden:nth-child(1)').removeClass('hidden');
