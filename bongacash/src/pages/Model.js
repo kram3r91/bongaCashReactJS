@@ -55,7 +55,7 @@ class Model extends Component {
     $('.breadcrumb-item.gender a').attr('href', '/genders?gender=' + model.gender);
     $('.breadcrumb-item.active').html(model.display_name);
     $('.badge-light').html(model.members_count);
-    $('iframe').attr('title', model.username).attr('src', model.embed_chat_url);
+    $('iframe').attr('title', model.username + model.tags).attr('src', model.embed_chat_url);
   }
 }
 
