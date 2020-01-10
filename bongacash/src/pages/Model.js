@@ -9,7 +9,6 @@ class Model extends Component {
   componentDidMount(){
     axios.get('https://promo-bc.com/promo.php?c=623270&type=api&api_v=1&api_type=json')
       .then(res => {
-        console.log(res);
         this.setState({
           posts: res.data
         })
@@ -36,7 +35,7 @@ class Model extends Component {
               </div>
             </div>
             <div className="row">
-              <iframe scrolling="no"></iframe>
+              <iframe scrolling="no" title="BongaCash"></iframe>
             </div>
             <div className="row">
             </div>
