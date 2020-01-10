@@ -13,7 +13,6 @@ class Home extends Component {
   componentDidMount(){
     axios.get('https://promo-bc.com/promo.php?c=623270&type=api&api_v=1&api_type=json')
       .then(res => {
-        console.log(res);
         this.setState({
           posts: res.data
         })
