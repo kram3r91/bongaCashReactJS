@@ -11,7 +11,12 @@ class Home extends Component {
     posts: []
   }
   componentDidMount(){
-    axios.get('https://promo-bc.com/promo.php?c=623270&type=api&api_v=1&api_type=json')
+    const script = document.createElement("script");
+    script.src = "https://promo-bc.com/promo.php?c=623270&type=background_skin&size=2540x1600&name=08";
+    script.async = true;
+    document.body.appendChild(script);
+
+    axios.get('https://promo-bc.com/promo.php?c=623270&lang=en&type=api&api_v=1&api_type=json')
       .then(res => {
         this.setState({
           posts: res.data
@@ -20,6 +25,7 @@ class Home extends Component {
   }
   render(){
     const { posts } = this.state;
+    console.log(posts);
     const postList = posts.length ? (
       posts.map(post => {
         return (
