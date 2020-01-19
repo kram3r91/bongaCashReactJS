@@ -1,3 +1,24 @@
 body {
   font-size: 16px;
 }
+
+.scroll-to-top {
+  position: fixed;
+  bottom: 0.5rem;
+  right: 0.5rem;
+  animation: fadeIn 700ms ease-in-out 1s both;
+  cursor: pointer;
+  font-size: 2.5rem;
+  transition: all 0.3s ease-out;
+}
+.scroll-to-top:hover {
+  transform: scale(1.2);
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

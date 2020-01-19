@@ -1,8 +1,12 @@
 import React, { Component } from "react";
 import axios from 'axios';
 import $ from 'jquery';
+
+import ScrollToTopBtn from '../components/scripts/ScrollToTop';
+
 import '../css/general.css';
 import '../css/profiles.css';
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from '@fortawesome/free-solid-svg-icons';
 
@@ -11,11 +15,6 @@ class Home extends Component {
     posts: []
   }
   componentDidMount(){
-    const script = document.createElement("script");
-    script.src = "https://promo-bc.com/promo.php?c=623270&type=background_skin&size=2540x1600&name=08";
-    script.async = true;
-    document.body.appendChild(script);
-
     axios.get('https://promo-bc.com/promo.php?c=623270&lang=en&type=api&api_v=1&api_type=json')
       .then(res => {
         this.setState({
@@ -65,6 +64,7 @@ class Home extends Component {
           </div>
         </div>
         </header>
+        <ScrollToTopBtn />
       </div>
     );
   }

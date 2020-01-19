@@ -24,7 +24,7 @@ class Model extends Component {
         <div className="container">
           <div className="profile-model hidden">
             <div className="row">
-              <div className="col-sm-6 col-md-6 col-lg6">
+              <div className="col-sm-6 col-md-6 col-lg-6">
                 <nav aria-label="breadcrumb float-left">
                   <ol className="breadcrumb">
                     <li className="breadcrumb-item home"><a href="/">Home</a></li>
@@ -59,7 +59,7 @@ class Model extends Component {
                 '</div>' +
               '</a>' +
               '<div class="card-body">' +
-                '<p class="card-text hashtags"><a href="/tags?tag= '+ posts[i].tags[0] + ' "> #' + posts[i].tags[0] + '</a><a href="/tags?tag= '+ posts[i].tags[1] + ' "> #' + posts[i].tags[1] + '</a><a href="/tags?tag= '+ posts[i].tags[2] + ' "> #' + posts[i].tags[2] + '</a></p>' +
+                '<p class="card-text hashtags"><a href="/tags?tag='+ posts[i].tags[0] + ' "> #' + posts[i].tags[0] + '</a><a href="/tags?tag='+ posts[i].tags[1] + ' "> #' + posts[i].tags[1] + '</a><a href="/tags?tag='+ posts[i].tags[2] + ' "> #' + posts[i].tags[2] + '</a></p>' +
                 '<p class="card-text">' +
                   '<small class="text-muted">' +
                     '<span class="float-left"></span>' +
