@@ -29,6 +29,38 @@
 	color: #fff;
 	font-size: 0.9rem;
 }
+.singleModel .profileLink .infoTop {
+	position: absolute;
+	left: 0;
+	top: 0;
+	background: transparent;
+	width: 100%;
+	padding: 0.2rem 0.4rem;
+}
+.singleModel .profileLink .infoTop .live {
+	background-color: rgba(75, 195, 36, 1);
+	color: #fff;
+	font-weight: 600;
+	padding: 0.1rem 0.2rem;
+	text-transform: uppercase;
+	font-size: 0.6rem;
+	border-radius: 2px;
+}
+.singleModel .profileLink .infoTop .vibratoy {
+	color: #ff0000;
+	background-color: rgba(255, 255, 255, 1);
+	padding: 0.2rem;
+	border-radius: 50px;
+}
+.singleModel .profileLink .infoTop .hd {
+	color: #000;
+	background-color: rgba(255, 255, 255, 1);
+	padding: 0.2rem;
+	font-size: 0.6rem;
+	text-transform: uppercase;
+	top: -2px;
+	position: relative;
+}
 .singleModel .profileLink .info {
 	position: absolute;
 	left: 0;

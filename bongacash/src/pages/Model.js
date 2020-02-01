@@ -38,6 +38,7 @@ class Model extends Component {
               <iframe scrolling="no" title="BongaCash"></iframe>
             </div>
             <div className="row">
+              <div className="vibratoy"></div>
             </div>
           </div>
         </div>

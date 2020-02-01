@@ -9,6 +9,7 @@ import '../css/profiles.css';
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from '@fortawesome/free-solid-svg-icons';
+import { faMagic } from '@fortawesome/free-solid-svg-icons';
 
 class Home extends Component {
   state = {
@@ -32,8 +33,12 @@ class Home extends Component {
             <div className="card">
               <a href={"/model?username=" + post.username + "?gender=" + post.gender} className="profileLink">
                 <img className="card-img-top" src={ post.profile_images.thumbnail_image_medium_live } alt={ post.username } />
+                <div className="infoTop">
+                  <span className="float-left live">live</span>
+                  <span className="float-right">{ post.vibratoy ? (<span className="vibratoy"><FontAwesomeIcon icon={faMagic} /></span>) : ('') } {post.hd_cam ? (<span className="hd">hd+</span>) : ('')}</span>
+                </div>
                 <div className="info">
-                  <span className="float-left">{ post.display_name }</span>
+                  <span className="float-left">{ post.display_name } { post.display_age }</span>
                   <span className="float-right">{ post.members_count } <FontAwesomeIcon icon={faEye} /></span>
                 </div>
               </a>
