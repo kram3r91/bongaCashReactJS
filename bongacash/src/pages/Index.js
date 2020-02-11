@@ -25,7 +25,7 @@ class Home extends Component {
   }
   render(){
     const { posts } = this.state;
-    console.log(posts);
+    //console.log(posts);
     const postList = posts.length ? (
       posts.map(post => {
         return (

@@ -1,7 +1,19 @@
 .navbar-dark .navbar-text {
-  color: #4bbf29;
+  color: #fff;
 }
 .sticky-top {
-
   margin-bottom: 1rem;
+}
+.bg-pink {
+  background-color: #c52052;
+}
+.navbar-dark .navbar-nav .nav-link {
+  color: #fff;
+}
+.navbar-dark .navbar-brand {
+  text-transform: uppercase;
+}
+.navbar-dark .navbar-toggler {
+  color: #fff;
+  border-color: #fff;
 }

@@ -20,8 +20,8 @@ class Navigation extends Component {
   render() {
     const { posts } = this.state;
     return (
-        <nav className="navbar sticky-top navbar-dark bg-dark navbar-expand-lg">
-      		<a className="navbar-brand" href="/">BongaCash + ReactJS </a>
+        <nav className="navbar sticky-top navbar-dark bg-pink navbar-expand-lg">
+      		<a className="navbar-brand" href="/"><h3>Adult Videochat</h3></a>
       	  <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       	    <span className="navbar-toggler-icon"></span>
       	  </button>
