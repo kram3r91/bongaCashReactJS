@@ -1,6 +1,7 @@
 {
-  "name": "bongacash",
-  "version": "0.1.0",
+  "name": "adult-videochat",
+  "version": "0.0.1",
+  "homepage" : "http://www.adult-videochat.com",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
